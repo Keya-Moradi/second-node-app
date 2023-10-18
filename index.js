@@ -77,13 +77,17 @@
 
 const express = require('express');
 const app = express();
-const port = 13000;
+const PORT = process.env.PORT || 13000;
+
 
 app.get('/', (req, res) => {
-    return res.json({ message: 'Welcome to my Node App 2.0' })
+    // return res.json({ message: 'Welcome to my Node App 2.0' })
+    const link = 'https://www.youtube.com/watch?v=IVdJ6Z9jluc';
+    const jsonResponse = {
+        link: link,
+    };
+    res.json(jsonResponse);
 });
-
-const PORT = process.env.PORT || 13000;
 
 app.listen(PORT, () => {
     console.log('Server is running on PORT ', PORT);
