@@ -96,7 +96,7 @@ fetch('/')
         let link = data.link;
 
         // Do something with the link, for example, update an <a> element's href attribute
-        let linkElement = document.getElementById('mj');
+        let linkElement = document.getElementById('#mj');
         linkElement.href = link;
     })
     .catch(error => {
