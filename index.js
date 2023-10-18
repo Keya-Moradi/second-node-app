@@ -78,7 +78,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 13000;
-
+const fs = require('fs')
 
 app.get('/', (req, res) => {
     // return res.json({ message: 'Welcome to my Node App 2.0' })
@@ -102,6 +102,32 @@ fetch('/')
     .catch(error => {
         // Handle errors if the request fails
         console.error('Error:', error);
+    });
+
+    app.get('/jordan',(req,res)=>{
+        return res.json({Records:'Points: 32,292 || MVP: 5x || NBA Championships: 6x'})
+    });
+    app.get('/lebron',(req,res)=>{
+        return res.json({Records:'Points: 35,367 || MVP: 2x || NBA Championships: 4x'})
+    });
+    
+    fs.readFile('jordan.txt','utf8',(error, data)=>{
+        if (error){console.log('-----error-----', error);
+    } else{
+        console.log(data);
+    }
+    
+    });
+    
+    app.get('/micheal',(req,res)=>{
+        let element = req.query.GOAT;
+        fs.readFile(`${element}.txt`,'utf8',(error,data)=>{
+            if (error){
+                return res.json({ message : 'There is an isssue try again later'})
+            } else{
+                return res.json({message: data});
+            }
+        });
     });
 
 app.listen(PORT, () => {
