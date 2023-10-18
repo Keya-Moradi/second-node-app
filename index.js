@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express(); // instance of an app
-const { add, subtract, multiply, divide } = require('./calculator');
+// const { add, subtract, multiply, divide } = require('./calculator');
 const fs = require('fs');
 
 // create our  first route 
@@ -30,15 +30,17 @@ app.get('/', (req, res) => {
 
 
 
-    return res.json({ message: 'Welcome to my Node App' })
+    return res.json({ message: 'Welcome to my Node App 2.0' })
 });
 
-app.get('/apples', (req, res) => {
-    return res.json({ message: 'apples' });
+app.get('/michael', (req, res) => {
+    return res.json({
+        message: 'find the following link '
+    });
 });
 
-app.get('/bananas', (req, res) => {
-    return res.json({ message: 'bananas' });
+app.get('/kobe', (req, res) => {
+    return res.json({ message: 'Kobe' });
 });
 
 // using local modules + req.params
