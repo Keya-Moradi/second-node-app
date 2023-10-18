@@ -34,13 +34,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/michael', (req, res) => {
-    return res.json({
-        message: 'find the following link '
-    });
+    return res.json({ message: 'michael' });
 });
 
 app.get('/kobe', (req, res) => {
-    return res.json({ message: 'Kobe' });
+    return res.json({ message: 'kobe' });
 });
 
 // using local modules + req.params
@@ -91,7 +89,7 @@ fs.readFile('description.txt', 'utf8', (error, data) => {
 
 // using core modules and req.query
 // --------------------------------------
-// Example: localhost:8000/read?something=story
+// Example: localhost:13000/read?something=story
 // Response { "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugit amet minima illo laborum nam alias. Incidunt omnis eos eligendi a, ullam nihil doloremque illo, reprehenderit laudantium, corrupti delectus illum?" }
 // --------------------------------------
 // what is req.query? an object
