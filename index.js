@@ -89,6 +89,21 @@ app.get('/', (req, res) => {
     res.json(jsonResponse);
 });
 
+fetch('/')
+    .then(response => response.json())
+    .then(data => {
+        // Access the link from the JSON response
+        let link = data.link;
+
+        // Do something with the link, for example, update an <a> element's href attribute
+        let linkElement = document.getElementById('mj');
+        linkElement.href = link;
+    })
+    .catch(error => {
+        // Handle errors if the request fails
+        console.error('Error:', error);
+    });
+
 app.listen(PORT, () => {
     console.log('Server is running on PORT ', PORT);
 })
