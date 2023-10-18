@@ -1,91 +1,49 @@
-const express = require('express');
-const app = express(); // instance of an app
+// const express = require('express');
+// const app = express(); // instance of an app
 // const { add, subtract, multiply, divide } = require('./calculator');
-const fs = require('fs');
-
+// const fs = require('fs');
+// const port = 13000;
 // create our  first route 
 // home route
-app.get('/', (req, res) => {
-    // there are many tasks that may or may not need 
-    // to happen before you respond with data 
-
-    // ----------
-    // Scenario 1
-    // You need to iterate through an array of data and return
-    // some modified data as a response
-    // ----------
-
-    // ----------
-    // Scenario 2
-    // You need to hit an API, get back data, parse data,
-    // and send data as a response
-    // ----------
-
-    // ----------
-    // Scenario 
-    // You receive some data frmom the user while they are
-    // making a request, you will need to parse the incoming data, store the data in your database. Finally, you will
-    // need to respond to the user (via a re-direct to another route)
-    // ----------
-
-
-
-    return res.json({ message: 'Welcome to my Node App 2.0 and click on https://www.espn.com/nba/player/stats/_/id/1035/michael-jordan' })
-});
-
-app.get('/michael', (req, res) => {
-    return res.json({ message: 'michael' });
-});
-
-app.get('/kobe', (req, res) => {
-    return res.json({ message: 'kobe' });
-});
-
-// using local modules + req.params
-
-// --------------------------------------
-// Example: localhost:8000/add/7/8
-// Response { "answer": 15 }
-// --------------------------------------
-// what is req.params? an object
-// { num1: '7', num2: '8' }
-// --------------------------------------
-// app.get('/add/:num1/:num2', (req, res) => {
-//     let num1 = Number(req.params.num1); // number
-//     let num2 = Number(req.params.num2); // number
-//     let answer = add(num1, num2);
-//     return res.json({ answer: answer });
+// app.get('/', (req, res) => {
+// there are many tasks that may or may not need 
+// to happen before you respond with data 
+// ----------
+// Scenario 1
+// You need to iterate through an array of data and return
+// some modified data as a response
+// ----------
+// Scenario 2
+// You need to hit an API, get back data, parse data,
+// and send data as a response
+// ----------
+// Scenario 3
+// You receive some data frmom the user while they are
+// making a request, you will need to parse the incoming data, store the data in your database. Finally, you will
+// need to respond to the user (via a re-direct to another route)
+// ----------
+//     return res.json({ message: 'Welcome to my Node App 2.0' })
 // });
 
-// app.get('/subtract/:num1/:num2', (req, res) => {
-//     let num1 = Number(req.params.num1); // number
-//     let num2 = Number(req.params.num2); // number
-//     let answer = subtract(num1, num2);
-//     return res.json({ answer: answer });
+
+
+// app.get('/michael', (req, res) => {
+//     return res.json({ message: 'michael' });
 // });
 
-// app.get('/multiply/:num1/:num2', (req, res) => {
-//     let num1 = Number(req.params.num1); // number
-//     let num2 = Number(req.params.num2); // number
-//     let answer = multiply(num1, num2);
-//     return res.json({ answer: answer });
+// app.get('/kobe', (req, res) => {
+//     return res.json({ message: 'kobe' });
 // });
 
-// app.get('/divide/:num1/:num2', (req, res) => {
-//     let num1 = Number(req.params.num1); // number
-//     let num2 = Number(req.params.num2); // number
-//     let answer = divide(num1, num2);
-//     return res.json({ answer: answer });
-// });
-
-// test using the core module (fs)
-fs.readFile('description.txt', 'utf8', (error, data) => {
-    if (error) {
-        console.log('----- error ----', error);
-    } else {
-        console.log(data);
-    }
-})
+// // using local modules + req.params
+// // test using the core module (fs)
+// fs.readFile('description.txt', 'utf8', (error, data) => {
+//     if (error) {
+//         console.log('----- error ----', error);
+//     } else {
+//         console.log(data);
+//     }
+// })
 
 // using core modules and req.query
 // --------------------------------------
@@ -95,24 +53,36 @@ fs.readFile('description.txt', 'utf8', (error, data) => {
 // what is req.query? an object
 // { something: 'story' }
 // --------------------------------------
-app.get('/read', (req, res) => {
-    // grab the query string,
-    // pass the querystring into the fs function
-    // return the data that comes from the txt file
-    let element = req.query.something; // story
-    fs.readFile(`${element}.txt`, 'utf8', (error, data) => {
-        if (error) {
-            return res.json({ message: 'There is an issue, try again later...' });
-        } else {
-            console.log(data)
-            return res.json({ message: data });
-        }
-    });
-});
-
-
+// app.get('/read', (req, res) => {
+//     // grab the query string,
+//     // pass the querystring into the fs function
+//     // return the data that comes from the txt file
+//     let element = req.query.something; // story
+//     fs.readFile(`${element}.txt`, 'utf8', (error, data) => {
+//         if (error) {
+//             return res.json({ message: 'There is an issue, try again later...' });
+//         } else {
+//             console.log(data)
+//             return res.json({ message: data });
+//         }
+//     });
+// });
 
 // Set up a PORT number, and listen for server 
+// const PORT = process.env.PORT || 13000;
+
+// app.listen(PORT, () => {
+//     console.log('Server is running on PORT ', PORT);
+// })
+
+const express = require('express');
+const app = express();
+const port = 13000;
+
+app.get('/', (req, res) => {
+    return res.json({ message: 'Welcome to my Node App 2.0' })
+});
+
 const PORT = process.env.PORT || 13000;
 
 app.listen(PORT, () => {
