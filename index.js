@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 
 
-    return res.json({ message: 'Welcome to my Node App 2.0' })
+    return res.json({ message: 'Welcome to my Node App 2.0 and click on https://www.espn.com/nba/player/stats/_/id/1035/michael-jordan' })
 });
 
 app.get('/michael', (req, res) => {
